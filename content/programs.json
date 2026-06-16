@@ -1,0 +1,151 @@
+{
+  "locationIntro": "Located in the Rainbow Plaza Shopping Center",
+  "weeklyServices": [
+    {
+      "id": "sunday",
+      "category": "Sunday Services",
+      "image": "/images/programs/worship.jpg",
+      "items": [
+        {
+          "name": "Sunday School",
+          "time": "9:25 AM",
+          "note": "Childcare is available"
+        },
+        {
+          "name": "Worship Service",
+          "time": "10:30 AM",
+          "note": "Main Sunday morning service"
+        },
+        {
+          "name": "Nursery",
+          "time": "Throughout Service",
+          "note": "Ages 0–2",
+          "group": "kids"
+        },
+        {
+          "name": "Preschool",
+          "time": "After 1st Song",
+          "note": "Ages 3–6",
+          "group": "kids"
+        },
+        {
+          "name": "Children's Church",
+          "time": "After Worship",
+          "note": "Ages 7–11",
+          "group": "kids"
+        }
+      ]
+    },
+    {
+      "id": "wednesday",
+      "category": "Wednesday Services",
+      "image": "/images/programs/summit-church.jpg",
+      "items": [
+        {
+          "name": "Food & Fellowship",
+          "time": "5:30 PM",
+          "note": "First Wednesday of each month"
+        },
+        {
+          "name": "Worship & Service",
+          "time": "6:30 PM",
+          "note": "First Wednesday of each month"
+        }
+      ]
+    }
+  ],
+  "ministries": [
+    {
+      "id": "kids-ministry",
+      "name": "Kids Ministry",
+      "audience": "Ages 0–11",
+      "schedule": "Sunday mornings during worship",
+      "details": [
+        { "label": "Nursery", "value": "Ages 0–2 · Available throughout the worship service" },
+        { "label": "Preschool", "value": "Ages 3–6 · Dismissed after the first worship song" },
+        { "label": "Children's Church", "value": "Ages 7–11 · After worship" }
+      ],
+      "image": "/images/programs/worship.jpg",
+      "imageWidth": 1200,
+      "imageHeight": 800
+    },
+    {
+      "id": "ascend-youth",
+      "name": "Ascend Youth Ministry",
+      "audience": "6th–12th Grade",
+      "schedule": "1st & 3rd Wednesdays · 6:00–7:00 PM",
+      "note": "Unless otherwise announced",
+      "image": "/images/programs/youth.jpg",
+      "imageWidth": 1248,
+      "imageHeight": 832
+    },
+    {
+      "id": "ladies-of-light",
+      "name": "Ladies of Light Ministry",
+      "audience": "Women's Ministry",
+      "schedule": "Last Sunday night of each month",
+      "details": [
+        {
+          "label": "Location",
+          "value": "J&D Farms in Southside",
+          "href": "https://www.google.com/maps/search/?api=1&query=5635%20Mountain%20Pass%20Rd%2C%20Southside%2C%20AL%2035907"
+        },
+        { "label": "Mingle", "value": "5:45 PM" },
+        { "label": "Service", "value": "6:00 PM" }
+      ],
+      "image": "/images/programs/ladies-ministry.jpg",
+      "imageWidth": 1728,
+      "imageHeight": 1152
+    },
+    {
+      "id": "grown-ups",
+      "name": "Grown Ups Small Group",
+      "audience": "Ages 40–60",
+      "schedule": "Every other month",
+      "note": "Day and location vary each month",
+      "image": "/images/programs/small-groups.jpg",
+      "imageWidth": 1284,
+      "imageHeight": 856
+    },
+    {
+      "id": "young-adults",
+      "name": "Young Adults & Young Families",
+      "audience": "Small Group",
+      "schedule": "Once a month",
+      "note": "Day and location vary each month",
+      "image": "/images/programs/young-adults.jpg",
+      "imageWidth": 800,
+      "imageHeight": 600
+    }
+  ],
+  "summitChurchSchool": {
+    "id": "summit-church-school",
+    "name": "Summit Church School",
+    "audience": "A Ministry of Summit Church",
+    "schedule": "Homeschool church school cover",
+    "note": "We come alongside parents who homeschool—offering structure, accountability, and a Christ-centered community for families across Alabama.",
+    "details": [
+      {
+        "label": "Website",
+        "value": "summitchurchschool.org",
+        "href": "https://summitchurchschool.org"
+      },
+      {
+        "label": "Facebook",
+        "value": "Summit Church School",
+        "href": "https://www.facebook.com/SummitChurchSchool"
+      }
+    ],
+    "image": "/images/programs/summit-church-school.jpg",
+    "imageMobile": "/images/programs/summit-church-school.jpg",
+    "imageMobileWidth": 1248,
+    "imageMobileHeight": 832,
+    "imageDesktop": "/images/programs/summit-church-school-desktop.jpg",
+    "imageDesktopWidth": 1007,
+    "imageDesktopHeight": 712
+  },
+  "contact": {
+    "email": "summitchurchrbc246@gmail.com",
+    "visitNote": "Join us Sunday mornings at 10:30 a.m."
+  }
+}

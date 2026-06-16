@@ -1,0 +1,21 @@
+{
+  "quotes": [
+    {
+      "text": "Being a Christian is more than just an instantaneous conversion – it is a daily process whereby you grow to be more and more like Christ.",
+      "author": "Billy Graham"
+    },
+    {
+      "text": "The Lord will fight for you. You need only to be still.",
+      "author": "Exodus 14:14"
+    },
+    {
+      "text": "God cannot give us a happiness and peace apart from Himself, because it is not there. There is no such thing.",
+      "author": "C. S. Lewis"
+    }
+  ],
+  "cta": {
+    "quote": "Love is a fruit in season at all times, and within reach of every hand. It is the greatest gift anyone can give.",
+    "buttonText": "JOIN US THIS SUNDAY",
+    "buttonHref": "/contact"
+  }
+}

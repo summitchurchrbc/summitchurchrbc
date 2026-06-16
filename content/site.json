@@ -1,0 +1,70 @@
+{
+  "name": "Summit Church",
+  "tagline": "A church that feels like home...",
+  "location": "Rainbow City, AL",
+  "description": "Summit Church Rainbow City, AL is a non-denominational church that feels like home, preaches Jesus, pursues freedom and loves all people!",
+  "headerQuote": "We make a living by what we get, but a life by what we give.",
+  "address": {
+    "street": "3225 Rainbow Dr #246",
+    "city": "Rainbow City",
+    "state": "AL",
+    "zip": "35906",
+    "place": "Rainbow Plaza Shopping Center"
+  },
+  "phone": "",
+  "email": "summitchurchrbc246@gmail.com",
+  "serviceTimes": [
+    {
+      "name": "Sunday School",
+      "time": "9:25 AM",
+      "note": "Childcare is available"
+    },
+    {
+      "name": "Worship Service",
+      "time": "10:30 AM",
+      "note": "Sunday mornings"
+    },
+    {
+      "name": "Nursery",
+      "time": "Throughout Service",
+      "note": "Ages 0–2"
+    },
+    {
+      "name": "Preschool",
+      "time": "After 1st Song",
+      "note": "Ages 3–6"
+    },
+    {
+      "name": "Children's Church",
+      "time": "After Worship",
+      "note": "Ages 7–11"
+    },
+    {
+      "name": "Wednesday Fellowship",
+      "time": "5:30 PM",
+      "note": "First Wednesday of each month"
+    },
+    {
+      "name": "Wednesday Worship & Service",
+      "time": "6:30 PM",
+      "note": "First Wednesday of each month"
+    }
+  ],
+  "social": {
+    "facebook": "https://www.facebook.com/SummitChurchRBC/",
+    "youtube": "https://www.youtube.com/@summitchurch8578"
+  },
+  "giveUrl": "https://app.easytithe.com/App/Giving/Days3400430",
+  "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6502.147662172137!2d-86.03820433090117!3d33.963788301519344!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888a3ba07153486b%3A0x6391005fe1edd01!2sSummit%20Church!5e0!3m2!1sen!2sus!4v1703209079946!5m2!1sen!2sus",
+  "googleMapsUrl": "https://maps.google.com/maps?ll=33.963792,-86.034865&z=15&t=m&hl=en&gl=US&mapclient=embed&cid=448407255824391425",
+  "mapCoordinates": {
+    "lat": 33.963792,
+    "lng": -86.034865
+  },
+  "analyticsId": "G-8QTJZR7LSR",
+  "verification": {
+    "google": "PpODUH9Wps4cl7kNwY3-3_vBbYi2p9ardVGB-PQRuTg",
+    "bing": "0e045ad8d71c460a878fc3def91ccab0"
+  },
+  "url": "https://www.summitchurchrbc.com"
+}

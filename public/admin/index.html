@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Summit Church CMS</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      CMS.init({
+        config: {
+          backend: {
+            name: "git-gateway",
+            branch: "main",
+          },
+          media_folder: "public/images/uploads",
+          public_folder: "/images/uploads",
+          collections: [
+            {
+              name: "site",
+              label: "Site Settings",
+              files: [
+                {
+                  name: "settings",
+                  label: "Global Settings",
+                  file: "content/site.json",
+                  fields: [
+                    { label: "Church Name", name: "name", widget: "string" },
+                    { label: "Tagline", name: "tagline", widget: "string" },
+                    { label: "Description", name: "description", widget: "text" },
+                    { label: "Header Quote", name: "headerQuote", widget: "string" },
+                    {
+                      label: "Address",
+                      name: "address",
+                      widget: "object",
+                      fields: [
+                        { label: "Street", name: "street", widget: "string" },
+                        { label: "City", name: "city", widget: "string" },
+                        { label: "State", name: "state", widget: "string" },
+                        { label: "ZIP", name: "zip", widget: "string" },
+                        { label: "Place Name", name: "place", widget: "string" },
+                      ],
+                    },
+                    { label: "Give URL", name: "giveUrl", widget: "string" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "sermons",
+              label: "Sermons",
+              file: "content/services.json",
+              fields: [
+                {
+                  label: "Sermons",
+                  name: "sermons",
+                  widget: "list",
+                  fields: [
+                    { label: "ID", name: "id", widget: "number" },
+                    { label: "Title", name: "title", widget: "string" },
+                    { label: "Slug", name: "slug", widget: "string" },
+                    { label: "Date", name: "date", widget: "string" },
+                    { label: "Facebook URL", name: "facebookUrl", widget: "string" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "team",
+              label: "Team",
+              file: "content/team.json",
+              fields: [
+                { label: "Mission", name: "mission", widget: "text" },
+                {
+                  label: "Story Paragraphs",
+                  name: "story",
+                  widget: "list",
+                  field: { label: "Paragraph", name: "paragraph", widget: "text" },
+                },
+                {
+                  label: "Team Members",
+                  name: "members",
+                  widget: "list",
+                  fields: [
+                    { label: "Slug", name: "slug", widget: "string" },
+                    { label: "Name", name: "name", widget: "string" },
+                    { label: "Role", name: "role", widget: "string" },
+                    { label: "Photo", name: "image", widget: "image" },
+                    { label: "Bio", name: "bio", widget: "text" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "gallery",
+              label: "Gallery",
+              file: "content/gallery.json",
+              fields: [
+                {
+                  label: "Images",
+                  name: "images",
+                  widget: "list",
+                  fields: [
+                    { label: "Image", name: "src", widget: "image" },
+                    { label: "Alt Text", name: "alt", widget: "string" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "hero",
+              label: "Hero Slider",
+              file: "content/hero.json",
+              fields: [
+                {
+                  label: "Slides",
+                  name: "slides",
+                  widget: "list",
+                  fields: [
+                    { label: "Headline", name: "headline", widget: "string" },
+                    { label: "CTA Text", name: "ctaText", widget: "string" },
+                    { label: "CTA Link", name: "ctaHref", widget: "string" },
+                    { label: "Background Image", name: "image", widget: "image" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

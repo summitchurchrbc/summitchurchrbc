@@ -1,0 +1,11 @@
+{
+  "timezone": "America/Chicago",
+  "windows": [
+    {
+      "label": "Sunday Service",
+      "days": ["sunday"],
+      "start": "08:00",
+      "end": "13:00"
+    }
+  ]
+}

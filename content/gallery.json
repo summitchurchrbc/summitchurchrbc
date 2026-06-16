@@ -1,0 +1,440 @@
+{
+  "images": [
+    {
+      "src": "/images/gallery/cropped-favicon-32x32-1-192x192.png",
+      "alt": "Summit Church photo 1"
+    },
+    {
+      "src": "/images/gallery/cropped-favicon-32x32-1-32x32.png",
+      "alt": "Summit Church photo 2"
+    },
+    {
+      "src": "/images/gallery/cropped-favicon-32x32-1-180x180.png",
+      "alt": "Summit Church photo 3"
+    },
+    {
+      "src": "/images/gallery/2023-225x300.jpg",
+      "alt": "Summit Church photo 4"
+    },
+    {
+      "src": "/images/gallery/2023group-300x200.jpg",
+      "alt": "Summit Church photo 5"
+    },
+    {
+      "src": "/images/gallery/2023pa-225x300.jpg",
+      "alt": "Summit Church photo 6"
+    },
+    {
+      "src": "/images/gallery/2023pastors-300x268.jpg",
+      "alt": "Summit Church photo 7"
+    },
+    {
+      "src": "/images/gallery/2023sg-225x300.jpg",
+      "alt": "Summit Church photo 8"
+    },
+    {
+      "src": "/images/gallery/2023small-300x225.jpg",
+      "alt": "Summit Church photo 9"
+    },
+    {
+      "src": "/images/gallery/20231-236x300.jpg",
+      "alt": "Summit Church photo 10"
+    },
+    {
+      "src": "/images/gallery/20232-225x300.jpg",
+      "alt": "Summit Church photo 11"
+    },
+    {
+      "src": "/images/gallery/20233-225x300.jpg",
+      "alt": "Summit Church photo 12"
+    },
+    {
+      "src": "/images/gallery/20234-225x300.jpg",
+      "alt": "Summit Church photo 13"
+    },
+    {
+      "src": "/images/gallery/20235-225x300.jpg",
+      "alt": "Summit Church photo 14"
+    },
+    {
+      "src": "/images/gallery/20236-300x200.jpg",
+      "alt": "Summit Church photo 15"
+    },
+    {
+      "src": "/images/gallery/20237-300x200.jpg",
+      "alt": "Summit Church photo 16"
+    },
+    {
+      "src": "/images/gallery/20238-209x300.jpg",
+      "alt": "Summit Church photo 17"
+    },
+    {
+      "src": "/images/gallery/20239-250x300.jpg",
+      "alt": "Summit Church photo 18"
+    },
+    {
+      "src": "/images/gallery/202310-300x200.jpg",
+      "alt": "Summit Church photo 19"
+    },
+    {
+      "src": "/images/gallery/202311-300x200.jpg",
+      "alt": "Summit Church photo 20"
+    },
+    {
+      "src": "/images/gallery/202312-300x236.jpg",
+      "alt": "Summit Church photo 21"
+    },
+    {
+      "src": "/images/gallery/202313-300x200.jpg",
+      "alt": "Summit Church photo 22"
+    },
+    {
+      "src": "/images/gallery/202314-183x300.jpg",
+      "alt": "Summit Church photo 23"
+    },
+    {
+      "src": "/images/gallery/202315-300x225.jpg",
+      "alt": "Summit Church photo 24"
+    },
+    {
+      "src": "/images/gallery/202316-300x225.jpg",
+      "alt": "Summit Church photo 25"
+    },
+    {
+      "src": "/images/gallery/202318-300x200.jpg",
+      "alt": "Summit Church photo 26"
+    },
+    {
+      "src": "/images/gallery/SCC-150x150.jpg",
+      "alt": "Summit Church photo 27"
+    },
+    {
+      "src": "/images/gallery/scrbc-150x150.jpg",
+      "alt": "Summit Church photo 28"
+    },
+    {
+      "src": "/images/gallery/summit-church-150x150.jpg",
+      "alt": "Summit Church photo 29"
+    },
+    {
+      "src": "/images/gallery/329038579_893324212086420_2600250313739028556_n-150x150.jpg",
+      "alt": "Summit Church photo 30"
+    },
+    {
+      "src": "/images/gallery/329159731_3519158368313110_8537082149632564610_n-150x150.jpg",
+      "alt": "Summit Church photo 31"
+    },
+    {
+      "src": "/images/gallery/329427663_1189022111731695_5699145995267299991_n-150x150.jpg",
+      "alt": "Summit Church photo 32"
+    },
+    {
+      "src": "/images/gallery/330193021_923389132348737_3687792713070333668_n-150x150.jpg",
+      "alt": "Summit Church photo 33"
+    },
+    {
+      "src": "/images/gallery/333067452_226789226412091_3997903871362040621_n-150x150.jpg",
+      "alt": "Summit Church photo 34"
+    },
+    {
+      "src": "/images/gallery/366848780_635812498648507_4405319992038482922_n-150x150.jpg",
+      "alt": "Summit Church photo 35"
+    },
+    {
+      "src": "/images/gallery/366970202_635812431981847_532410698398181233_n-150x150.jpg",
+      "alt": "Summit Church photo 36"
+    },
+    {
+      "src": "/images/gallery/366987049_635336918696065_4268691488470736529_n-150x150.jpg",
+      "alt": "Summit Church photo 37"
+    },
+    {
+      "src": "/images/gallery/367460464_635812461981844_4546340003401598599_n-150x150.jpg",
+      "alt": "Summit Church photo 38"
+    },
+    {
+      "src": "/images/gallery/367467623_635812408648516_9003366739409605898_n-150x150.jpg",
+      "alt": "Summit Church photo 39"
+    },
+    {
+      "src": "/images/gallery/367475059_635810258648731_2528514930079901231_n-150x150.jpg",
+      "alt": "Summit Church photo 40"
+    },
+    {
+      "src": "/images/gallery/367488981_635812418648515_2174440869929424547_n-150x150.jpg",
+      "alt": "Summit Church photo 41"
+    },
+    {
+      "src": "/images/gallery/367498396_635812488648508_8504425887873801647_n-150x150.jpg",
+      "alt": "Summit Church photo 42"
+    },
+    {
+      "src": "/images/gallery/367679721_635812475315176_1991226025498263356_n-150x150.jpg",
+      "alt": "Summit Church photo 43"
+    },
+    {
+      "src": "/images/gallery/367689626_635812515315172_6746083160742917689_n-150x150.jpg",
+      "alt": "Summit Church photo 44"
+    },
+    {
+      "src": "/images/gallery/368323974_639259818303775_517770931884966745_n-150x150.jpg",
+      "alt": "Summit Church photo 45"
+    },
+    {
+      "src": "/images/gallery/368331249_639260334970390_3574722398831000213_n-150x150.jpg",
+      "alt": "Summit Church photo 46"
+    },
+    {
+      "src": "/images/gallery/368619120_639261861636904_2568849667309865018_n-150x150.jpg",
+      "alt": "Summit Church photo 47"
+    },
+    {
+      "src": "/images/gallery/368749600_639262264970197_7687870941342388471_n-150x150.jpg",
+      "alt": "Summit Church photo 48"
+    },
+    {
+      "src": "/images/gallery/369029548_639262641636826_6719655998071308550_n-150x150.jpg",
+      "alt": "Summit Church photo 49"
+    },
+    {
+      "src": "/images/gallery/369041812_639262571636833_6582574175988553429_n-150x150.jpg",
+      "alt": "Summit Church photo 50"
+    },
+    {
+      "src": "/images/gallery/369049775_639262628303494_6656157681017644568_n-150x150.jpg",
+      "alt": "Summit Church photo 51"
+    },
+    {
+      "src": "/images/gallery/369129391_639262651636825_7998703027934978577_n-150x150.jpg",
+      "alt": "Summit Church photo 52"
+    },
+    {
+      "src": "/images/gallery/369144337_639262678303489_8213452782067456881_n-150x150.jpg",
+      "alt": "Summit Church photo 53"
+    },
+    {
+      "src": "/images/gallery/369148938_639262691636821_1824225255166641600_n-150x150.jpg",
+      "alt": "Summit Church photo 54"
+    },
+    {
+      "src": "/images/gallery/370346178_642643361298754_1077051254701294693_n-150x150.jpg",
+      "alt": "Summit Church photo 55"
+    },
+    {
+      "src": "/images/gallery/370462604_642643141298776_4519576062698463119_n-150x150.jpg",
+      "alt": "Summit Church photo 56"
+    },
+    {
+      "src": "/images/gallery/370620507_642646787965078_5130068472751629412_n-150x150.jpg",
+      "alt": "Summit Church photo 57"
+    },
+    {
+      "src": "/images/gallery/370625255_642646801298410_4820441164725911261_n-150x150.jpg",
+      "alt": "Summit Church photo 58"
+    },
+    {
+      "src": "/images/gallery/370632868_642646661298424_6098941982442741229_n-150x150.jpg",
+      "alt": "Summit Church photo 59"
+    },
+    {
+      "src": "/images/gallery/370844795_642646647965092_5990429660003105626_n-150x150.jpg",
+      "alt": "Summit Church photo 60"
+    },
+    {
+      "src": "/images/gallery/370853812_642646731298417_6828907732935262128_n-150x150.jpg",
+      "alt": "Summit Church photo 61"
+    },
+    {
+      "src": "/images/gallery/370978153_642646814631742_2674201162117786845_n-150x150.jpg",
+      "alt": "Summit Church photo 62"
+    },
+    {
+      "src": "/images/gallery/371089307_642646764631747_4869620453348241644_n-150x150.jpg",
+      "alt": "Summit Church photo 63"
+    },
+    {
+      "src": "/images/gallery/371092183_642646754631748_95412828169823767_n-150x150.jpg",
+      "alt": "Summit Church photo 64"
+    },
+    {
+      "src": "/images/gallery/371541031_642646781298412_465284873894787708_n-150x150.jpg",
+      "alt": "Summit Church photo 65"
+    },
+    {
+      "src": "/images/gallery/371544871_642646771298413_2641572119458406199_n-150x150.jpg",
+      "alt": "Summit Church photo 66"
+    },
+    {
+      "src": "/images/gallery/373058220_646101697619587_6335021795259337408_n-150x150.jpg",
+      "alt": "Summit Church photo 67"
+    },
+    {
+      "src": "/images/gallery/373550233_646099930953097_6335149341650373674_n-150x150.jpg",
+      "alt": "Summit Church photo 68"
+    },
+    {
+      "src": "/images/gallery/373565010_646101720952918_3328214858382797481_n-150x150.jpg",
+      "alt": "Summit Church photo 69"
+    },
+    {
+      "src": "/images/gallery/373658701_646099974286426_3650997804763422798_n-150x150.jpg",
+      "alt": "Summit Church photo 70"
+    },
+    {
+      "src": "/images/gallery/374056338_646099944286429_4780753698985097765_n-150x150.jpg",
+      "alt": "Summit Church photo 71"
+    },
+    {
+      "src": "/images/gallery/374281215_646100014286422_1654319192043789337_n-150x150.jpg",
+      "alt": "Summit Church photo 72"
+    },
+    {
+      "src": "/images/gallery/374451784_646100024286421_7142962117036811442_n-150x150.jpg",
+      "alt": "Summit Church photo 73"
+    },
+    {
+      "src": "/images/gallery/374497204_646099964286427_9113739783132239520_n-150x150.jpg",
+      "alt": "Summit Church photo 74"
+    },
+    {
+      "src": "/images/gallery/374985844_646100047619752_8134498380115166429_n-150x150.jpg",
+      "alt": "Summit Church photo 75"
+    },
+    {
+      "src": "/images/gallery/375468620_646100040953086_1386955130277714982_n-150x150.jpg",
+      "alt": "Summit Church photo 76"
+    },
+    {
+      "src": "/images/gallery/376266458_650914483804975_5831733072235829857_n-150x150.jpg",
+      "alt": "Summit Church photo 77"
+    },
+    {
+      "src": "/images/gallery/376266599_650917403804683_6618271218280857039_n-150x150.jpg",
+      "alt": "Summit Church photo 78"
+    },
+    {
+      "src": "/images/gallery/376270540_650914907138266_2048220187561237874_n-150x150.jpg",
+      "alt": "Summit Church photo 79"
+    },
+    {
+      "src": "/images/gallery/376285778_650917393804684_1976218270942163012_n-150x150.jpg",
+      "alt": "Summit Church photo 80"
+    },
+    {
+      "src": "/images/gallery/376699905_650915037138253_2048656478722705034_n-150x150.jpg",
+      "alt": "Summit Church photo 81"
+    },
+    {
+      "src": "/images/gallery/376783344_650917447138012_1388518244918994120_n-150x150.jpg",
+      "alt": "Summit Church photo 82"
+    },
+    {
+      "src": "/images/gallery/377561258_650917423804681_3433976923198566683_n-150x150.jpg",
+      "alt": "Summit Church photo 83"
+    },
+    {
+      "src": "/images/gallery/377986446_650917357138021_6321460923011854754_n-150x150.jpg",
+      "alt": "Summit Church photo 84"
+    },
+    {
+      "src": "/images/gallery/378035320_650917413804682_1205805695700958707_n-150x150.jpg",
+      "alt": "Summit Church photo 85"
+    },
+    {
+      "src": "/images/gallery/378268790_650917453804678_7767517222366595734_n-150x150.jpg",
+      "alt": "Summit Church photo 86"
+    },
+    {
+      "src": "/images/gallery/kai-150x150.jpg",
+      "alt": "Summit Church photo 87"
+    },
+    {
+      "src": "/images/gallery/197692310_877900346271797_6802672884581895888_n-150x150.jpg",
+      "alt": "Summit Church photo 88"
+    },
+    {
+      "src": "/images/gallery/272415689_1014780142583816_2740173391539354941_n-150x150.jpg",
+      "alt": "Summit Church photo 89"
+    },
+    {
+      "src": "/images/gallery/273390228_1022026141859216_8620442360965029311_n-150x150.jpg",
+      "alt": "Summit Church photo 90"
+    },
+    {
+      "src": "/images/gallery/279015454_1074450296616800_5601718007691833107_n-150x150.jpg",
+      "alt": "Summit Church photo 91"
+    },
+    {
+      "src": "/images/gallery/279084062_1074450313283465_8985838581747812291_n-150x150.jpg",
+      "alt": "Summit Church photo 92"
+    },
+    {
+      "src": "/images/gallery/279093765_1074450366616793_7247267129345208988_n-150x150.jpg",
+      "alt": "Summit Church photo 93"
+    },
+    {
+      "src": "/images/gallery/279197578_1074450383283458_613425572060969145_n-150x150.jpg",
+      "alt": "Summit Church photo 94"
+    },
+    {
+      "src": "/images/gallery/279215616_1074450253283471_1334906244378496545_n-150x150.jpg",
+      "alt": "Summit Church photo 95"
+    },
+    {
+      "src": "/images/gallery/279221486_1074450466616783_6509663902671893923_n-150x150.jpg",
+      "alt": "Summit Church photo 96"
+    },
+    {
+      "src": "/images/gallery/279267889_1074450329950130_644703129561107063_n-150x150.jpg",
+      "alt": "Summit Church photo 97"
+    },
+    {
+      "src": "/images/gallery/279282722_1074449743283522_2655247514494956169_n-150x150.jpg",
+      "alt": "Summit Church photo 98"
+    },
+    {
+      "src": "/images/gallery/279293352_1074450336616796_2911320422805737456_n-150x150.jpg",
+      "alt": "Summit Church photo 99"
+    },
+    {
+      "src": "/images/gallery/279338089_1074450396616790_4429335395054552053_n-150x150.jpg",
+      "alt": "Summit Church photo 100"
+    },
+    {
+      "src": "/images/gallery/279350467_1074450609950102_314629834558074136_n-150x150.jpg",
+      "alt": "Summit Church photo 101"
+    },
+    {
+      "src": "/images/gallery/279438037_1074450593283437_1723747724522717085_n-150x150.jpg",
+      "alt": "Summit Church photo 102"
+    },
+    {
+      "src": "/images/gallery/279550648_1074450403283456_8622492978181777143_n-150x150.jpg",
+      "alt": "Summit Church photo 103"
+    },
+    {
+      "src": "/images/gallery/279723165_1074449833283513_3475999955534198356_n-150x150.jpg",
+      "alt": "Summit Church photo 104"
+    },
+    {
+      "src": "/images/gallery/307432075_1165375597524269_2454989901647319288_n-150x150.jpg",
+      "alt": "Summit Church photo 105"
+    },
+    {
+      "src": "/images/gallery/1-29-23-150x150.png",
+      "alt": "Summit Church photo 106"
+    },
+    {
+      "src": "/images/gallery/1-15-23-150x150.png",
+      "alt": "Summit Church photo 107"
+    },
+    {
+      "src": "/images/gallery/1-8-23-150x150.png",
+      "alt": "Summit Church photo 108"
+    },
+    {
+      "src": "/images/gallery/8-7-22-150x150.png",
+      "alt": "Summit Church photo 109"
+    }
+  ]
+}

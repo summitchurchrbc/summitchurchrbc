@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "welcomeHeading": "You Belong Here",
+    "serviceLine": "Sundays at 10:30 AM • In-Person & Online",
+    "primaryCta": {
+      "text": "Plan Your Visit",
+      "href": "/plan-your-visit"
+    },
+    "secondaryCta": {
+      "text": "Watch Latest Service",
+      "href": "/services"
+    },
+    "logoAlt": "Summit Church logo"
+  },
+  "welcome": {
+    "heading": "A Church That Feels Like Home",
+    "paragraphs": [
+      "Summit Church is a Christ-centered, hope-filled community in Rainbow City, AL. We exist to declare the promises of God and help people grow in faith together.",
+      "Whether you have been walking with Jesus for years or are exploring faith for the first time, you are welcome here. We believe real revival looks like healthy marriages, thriving families, and true friendships."
+    ],
+    "highlights": [
+      "Christ-centered",
+      "hope-filled",
+      "healthy marriages",
+      "thriving families",
+      "true friendships"
+    ],
+    "image": "/images/gallery/2023group-1200x802.jpg",
+    "imageAlt": "Summit Church congregation gathered together",
+    "imageWidth": 1200,
+    "imageHeight": 802
+  },
+  "nextSteps": {
+    "heading": "Your Next Step at Summit",
+    "subheading": "New here? Start with one of these simple next steps.",
+    "cards": [
+      {
+        "id": "plan-visit",
+        "title": "Plan Your Visit",
+        "description": "See what to expect, where to park, and how to make your first Sunday easy.",
+        "icon": "visit",
+        "href": "/plan-your-visit",
+        "buttonText": "Learn More",
+        "showEmbed": false
+      },
+      {
+        "id": "request-prayer",
+        "title": "Request Prayer",
+        "description": "Share a prayer need with our church family. We would be honored to pray with you.",
+        "icon": "prayer",
+        "href": "/contact",
+        "buttonText": "Send Request",
+        "showEmbed": false
+      },
+      {
+        "id": "watch-online",
+        "title": "Watch Online",
+        "description": "Catch up on our latest Sunday service from anywhere.",
+        "icon": "play",
+        "href": "/services",
+        "buttonText": "Watch Now",
+        "showEmbed": true
+      }
+    ]
+  },
+  "planYourVisit": {
+    "heading": "Plan Your Visit",
+    "intro": "We would love to meet you this Sunday. Here is everything you need to feel at home from the moment you arrive.",
+    "whatToExpect": [
+      {
+        "title": "Come As You Are",
+        "description": "There is no dress code. Wear what makes you comfortable — jeans or Sunday best, you belong here.",
+        "icon": "heart"
+      },
+      {
+        "title": "Warm Welcome",
+        "description": "Our greeters will help you find your way, answer questions, and introduce you to pastors and members.",
+        "icon": "wave"
+      },
+      {
+        "title": "Kids Ministry",
+        "description": "Your kids will find a safe, welcoming place to have fun, make friends, and learn about Jesus through age-appropriate teaching and activities.",
+        "icon": "kids"
+      },
+      {
+        "title": "Parking & Location",
+        "description": "Free parking at Rainbow Plaza Shopping Center. Look for Summit Church signage near our entrance.",
+        "icon": "parking"
+      },
+      {
+        "title": "Worship Style",
+        "description": "Expect heartfelt worship, biblical teaching, and a friendly atmosphere where the Holy Spirit is welcome.",
+        "icon": "music"
+      },
+      {
+        "title": "Sunday Morning",
+        "description": "Worship begins at 10:30 AM. Sunday School for all ages starts at 9:25 AM if you would like to come early.",
+        "icon": "clock"
+      }
+    ],
+    "kidsIntro": "We want your whole family to feel welcome on Sunday. Childcare is available throughout the morning so parents can worship and hear the message.",
+    "learnMore": {
+      "heading": "Want to Know More?",
+      "subheading": "There is so much more to Summit Church than one Sunday morning.",
+      "links": [
+        {
+          "title": "Who We Are",
+          "description": "Meet our pastors, learn our story, and discover what we believe.",
+          "href": "/about"
+        },
+        {
+          "title": "Connect With Us",
+          "description": "Explore ministries, weekly gatherings, and ways to get involved.",
+          "href": "/service-times"
+        }
+      ]
+    },
+    "bottomCta": {
+      "text": "Join Us This Sunday",
+      "href": "/contact"
+    }
+  },
+  "testimonials": [
+    {
+      "quote": "I have been going to Summit Church on and off for several years, and consistently for the last two years. The pastor and his wife are the most loving and accepting people. They are welcoming with open arms and true love. The pastor preaches the truth and is never swayed, but truly loves as Jesus intended us to. Truly the best church and environment I have ever been to.",
+      "name": "Lora Hill",
+      "role": "Member"
+    },
+    {
+      "quote": "I love my church! The people here are so loving and it truly feels like home! I am so thankful I found this church and that I gained a whole new family!",
+      "name": "Shanna Witcher",
+      "role": "Member"
+    },
+    {
+      "quote": "They have a wonderful ministry! Definitely made this our church home! They treat everyone like family!",
+      "name": "Ryleigh Clark",
+      "role": "Member"
+    }
+  ],
+  "quoteFeature": {
+    "text": "Being a Christian is more than just an instantaneous conversion – it is a daily process whereby you grow to be more and more like Christ.",
+    "author": "Billy Graham"
+  },
+  "cta": {
+    "quote": "Love is a fruit in season at all times, and within reach of every hand. It is the greatest gift anyone can give.",
+    "buttonText": "Plan Your Visit",
+    "buttonHref": "/plan-your-visit"
+  }
+}

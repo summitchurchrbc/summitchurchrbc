@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - live-status-data:/var/live-status:ro
+    restart: unless-stopped
+
+  live-checker:
+    build:
+      context: .
+      dockerfile: Dockerfile.live-checker
+    environment:
+      YOUTUBE_API_KEY: ${YOUTUBE_API_KEY:-}
+    volumes:
+      - live-status-data:/var/live-status
+    restart: unless-stopped
+
+volumes:
+  live-status-data:
