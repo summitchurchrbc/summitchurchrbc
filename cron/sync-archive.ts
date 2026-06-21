@@ -1,6 +1,6 @@
 /**
  * Sync Sunday Service / Sunday School streams from YouTube channel RSS.
- * Usage: npm run sync:youtube  (cron/sync-archive.ts)
+ * Usage: npm run sync:youtube (cron/sync-archive.ts)
  */
 import * as fs from "fs";
 import * as path from "path";
@@ -69,18 +69,14 @@ interface ParsedVideo {
 function parseRss(xml: string): ParsedVideo[] {
   const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) ?? [];
   const videos: ParsedVideo[] = [];
-
   for (const entry of entries) {
     const videoId = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
     const title = entry.match(/<title>([^<]+)<\/title>/)?.[1];
     const published = entry.match(/<published>([^<]+)<\/published>/)?.[1];
-
     if (!videoId || !title || !published) continue;
-
     const decodedTitle = decodeXml(title);
     const category = categorize(decodedTitle);
     const date = published.slice(0, 10);
-
     videos.push({
       id: videoId,
       title: decodedTitle,
@@ -92,7 +88,6 @@ function parseRss(xml: string): ParsedVideo[] {
       category,
     });
   }
-
   return videos;
 }
 
@@ -100,13 +95,11 @@ async function main() {
   console.log("Fetching YouTube RSS...");
   const xml = await fetch(RSS_URL);
   const videos = parseRss(xml);
-
   const services = videos.filter((v) => v.category === "sunday-service");
   const sundaySchool = videos.filter((v) => v.category === "sunday-school");
-
-  console.log(`  ${videos.length} total videos`);
-  console.log(`  ${services.length} Sunday Service`);
-  console.log(`  ${sundaySchool.length} Sunday School`);
+  console.log(` ${videos.length} total videos`);
+  console.log(` ${services.length} Sunday Service`);
+  console.log(` ${sundaySchool.length} Sunday School`);
 
   const sermons = videos.map((video, index) => ({
     id: index + 1,
@@ -119,6 +112,7 @@ async function main() {
     category: video.category,
   }));
 
+  // Write to content folder (build-time)
   fs.writeFileSync(
     path.join(CONTENT, "services.json"),
     JSON.stringify({ sermons }, null, 2) + "\n"
@@ -139,7 +133,16 @@ async function main() {
     ) + "\n"
   );
 
-  console.log("Wrote content/services.json and content/youtube.json");
+  // Also write to public folder for dynamic updates
+  const publicDir = "/usr/share/nginx/html";
+  if (fs.existsSync(publicDir)) {
+    fs.writeFileSync(
+      path.join(publicDir, "services.json"),
+      JSON.stringify({ sermons }, null, 2) + "\n"
+    );
+  }
+
+  console.log("Wrote content/services.json and content/youtube.json + public copies");
 }
 
 main().catch((err) => {
