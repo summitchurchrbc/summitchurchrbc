@@ -17,7 +17,7 @@ import {
 
 const ROOT = path.join(__dirname, "..");
 const CONTENT = path.join(ROOT, "content");
-const DEFAULT_OUTPUT = path.join(ROOT, "public", "live-status.json");
+const DEFAULT_OUTPUT = "/usr/share/nginx/html/live-status.json";
 
 export interface LiveStatus {
   isLive: boolean;
