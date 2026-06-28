@@ -10,6 +10,7 @@
     "migrate": "tsx scripts/migrate-wp.ts",
     "migrate:assets": "tsx scripts/migrate-wp.ts --assets-only",
     "sync:youtube": "tsx cron/sync-archive.ts",
+    "sync:youtube:loop": "tsx cron/sync-archive-loop.ts",
     "deploy:sync": "bash cron/sync-and-deploy.sh",
     "cron:install-youtube-sync": "bash cron/install-sync-cron.sh",
     "check:youtube-live": "tsx cron/live-check.ts",

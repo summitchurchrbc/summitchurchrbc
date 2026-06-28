@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Sermon } from "@/lib/types";
 import { PREVIEW_LIVE_BADGES } from "@/lib/live-preview";
+import { useSermons } from "@/lib/useSermons";
 import { useYouTubeLiveStatus } from "@/lib/useYouTubeLiveStatus";
 import { LivePulseDot } from "./LivePulseDot";
 import { YouTubeChannelLiveEmbed } from "./YouTubeChannelLiveEmbed";
@@ -25,21 +26,22 @@ const filters: Array<{ key: FilterKey; label: string }> = [
 const ARCHIVE_LIMIT = 6;
 
 export function ServicesPlayer({ sermons, channelId, channelUrl }: ServicesPlayerProps) {
+  const syncedSermons = useSermons(sermons);
   const liveStatus = useYouTubeLiveStatus();
   const isLive = PREVIEW_LIVE_BADGES || (liveStatus?.isLive ?? false);
 
   const [filter, setFilter] = useState<FilterKey>("sunday-service");
   const filtered = useMemo(() => {
-    if (filter === "all") return sermons;
-    return sermons.filter((sermon) => sermon.category === filter);
-  }, [filter, sermons]);
+    if (filter === "all") return syncedSermons;
+    return syncedSermons.filter((sermon) => sermon.category === filter);
+  }, [filter, syncedSermons]);
 
   const [active, setActive] = useState<Sermon | null>(null);
   const defaultSermon = filtered[0] ?? null;
   const showLive = isLive && active === null;
   const current = active ?? defaultSermon;
 
-  if (!sermons.length) {
+  if (!syncedSermons.length) {
     return (
       <div className="rounded-sm bg-gray-100 px-6 py-16 text-center text-gray-600">
         <p>Service videos will appear here after syncing from YouTube.</p>

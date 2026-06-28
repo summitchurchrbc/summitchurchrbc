@@ -1,6 +1,7 @@
 {
   "timezone": "America/Chicago",
   "day": "sunday",
-  "time": "12:45",
+  "time": "13:30",
+  "windowMinutes": 90,
   "enabled": true
 }

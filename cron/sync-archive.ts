@@ -1,20 +1,29 @@
 /**
  * Sync Sunday Service / Sunday School streams from YouTube channel RSS.
  * Usage: npm run sync:youtube (cron/sync-archive.ts)
+ * Env:   SERVICES_OUTPUT (optional path for runtime JSON)
  */
 import * as fs from "fs";
-import * as path from "path";
 import * as https from "https";
+import * as path from "path";
 
 const CHANNEL_ID = "UChVlFzfrZeipjVGyaa99JAg";
 const CHANNEL_HANDLE = "@summitchurch8578";
 const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
-const CONTENT = path.join(__dirname, "..", "content");
+const ROOT = path.join(__dirname, "..");
+const CONTENT = path.join(ROOT, "content");
+const FETCH_TIMEOUT_MS = 15_000;
+
+function getServicesOutputPath(): string {
+  return process.env.SERVICES_OUTPUT ?? path.join(CONTENT, "services.json");
+}
 
 function fetch(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    https
-      .get(url, { headers: { "User-Agent": "SummitChurchSync/1.0" } }, (res) => {
+    const request = https.get(
+      url,
+      { headers: { "User-Agent": "SummitChurchSync/1.0" }, timeout: FETCH_TIMEOUT_MS },
+      (res) => {
         if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
           fetch(res.headers.location).then(resolve).catch(reject);
           return;
@@ -22,8 +31,14 @@ function fetch(url: string): Promise<string> {
         let data = "";
         res.on("data", (chunk) => (data += chunk));
         res.on("end", () => resolve(data));
-      })
-      .on("error", reject);
+      }
+    );
+
+    request.on("timeout", () => {
+      request.destroy();
+      reject(new Error(`Request timed out after ${FETCH_TIMEOUT_MS}ms: ${url}`));
+    });
+    request.on("error", reject);
   });
 }
 
@@ -91,17 +106,13 @@ function parseRss(xml: string): ParsedVideo[] {
   return videos;
 }
 
-async function main() {
-  console.log("Fetching YouTube RSS...");
-  const xml = await fetch(RSS_URL);
-  const videos = parseRss(xml);
-  const services = videos.filter((v) => v.category === "sunday-service");
-  const sundaySchool = videos.filter((v) => v.category === "sunday-school");
-  console.log(` ${videos.length} total videos`);
-  console.log(` ${services.length} Sunday Service`);
-  console.log(` ${sundaySchool.length} Sunday School`);
+function writeServicesFile(outputPath: string, sermons: ReturnType<typeof buildSermons>) {
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, JSON.stringify({ sermons }, null, 2) + "\n");
+}
 
-  const sermons = videos.map((video, index) => ({
+function buildSermons(videos: ParsedVideo[]) {
+  return videos.map((video, index) => ({
     id: index + 1,
     title: video.title,
     slug: video.slug,
@@ -111,12 +122,27 @@ async function main() {
     youtubeUrl: video.youtubeUrl,
     category: video.category,
   }));
+}
 
-  // Write to content folder (build-time)
-  fs.writeFileSync(
-    path.join(CONTENT, "services.json"),
-    JSON.stringify({ sermons }, null, 2) + "\n"
-  );
+export async function runSyncArchive() {
+  console.log("Fetching YouTube RSS...");
+  const xml = await fetch(RSS_URL);
+  const videos = parseRss(xml);
+  const services = videos.filter((v) => v.category === "sunday-service");
+  const sundaySchool = videos.filter((v) => v.category === "sunday-school");
+  console.log(` ${videos.length} total videos`);
+  console.log(` ${services.length} Sunday Service`);
+  console.log(` ${sundaySchool.length} Sunday School`);
+
+  const sermons = buildSermons(videos);
+  const outputPath = getServicesOutputPath();
+  const contentPath = path.join(CONTENT, "services.json");
+
+  writeServicesFile(outputPath, sermons);
+
+  if (path.resolve(outputPath) !== path.resolve(contentPath)) {
+    writeServicesFile(contentPath, sermons);
+  }
 
   fs.writeFileSync(
     path.join(CONTENT, "youtube.json"),
@@ -133,19 +159,18 @@ async function main() {
     ) + "\n"
   );
 
-  // Also write to public folder for dynamic updates
-  const publicDir = "/usr/share/nginx/html";
-  if (fs.existsSync(publicDir)) {
-    fs.writeFileSync(
-      path.join(publicDir, "services.json"),
-      JSON.stringify({ sermons }, null, 2) + "\n"
-    );
-  }
-
-  console.log("Wrote content/services.json and content/youtube.json + public copies");
+  console.log(`Wrote ${outputPath}`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+async function main() {
+  await runSyncArchive();
+}
+
+const isDirectRun = process.argv[1]?.includes("sync-archive");
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
