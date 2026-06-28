@@ -5,7 +5,6 @@
 import * as fs from "fs";
 import * as path from "path";
 import { runLiveCheck, writeOfflineStatus, type LiveStatus } from "./live-check";
-import { syncArchiveOnLiveEnd } from "./sync-on-live-end";
 import {
   describeSchedule,
   isWithinCheckWindow,
@@ -26,6 +25,13 @@ function readLiveStatus(outputPath: string): LiveStatus | null {
   } catch {
     return null;
   }
+}
+
+async function maybeSyncOnLiveEnd(previous: LiveStatus | null, current: LiveStatus) {
+  if (!process.env.SERVICES_OUTPUT) return;
+
+  const { syncArchiveOnLiveEnd } = await import("./sync-on-live-end");
+  await syncArchiveOnLiveEnd(previous, current);
 }
 
 async function main() {
@@ -53,7 +59,7 @@ async function main() {
         const label = window?.label ?? "scheduled window";
         console.log(`Within check window: ${label}`);
         const status = await runLiveCheck();
-        await syncArchiveOnLiveEnd(previousStatus, status);
+        await maybeSyncOnLiveEnd(previousStatus, status);
         previousStatus = status;
         await sleep(ACTIVE_INTERVAL_MS);
       } else {

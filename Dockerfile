@@ -13,9 +13,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY tsconfig.json ./
-COPY cron/live-check.ts cron/live-check-loop.ts cron/live-check-schedule.ts cron/
-COPY cron/sync-archive.ts cron/sync-on-live-end.ts cron/sync-archive-schedule.ts cron/
-COPY cron/sync-schedule.json cron/
+COPY cron/ cron/
 COPY content/youtube.json content/live-check-schedule.json content/
 
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
