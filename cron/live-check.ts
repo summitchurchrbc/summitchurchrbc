@@ -3,7 +3,7 @@
  * Writes public/live-status.json for the static site to poll.
  *
  * Usage: npm run check:youtube-live  (cron/live-check.ts)
- * Env:   YOUTUBE_API_KEY (optional, preferred) | LIVE_STATUS_OUTPUT (optional path)
+ * Env:   LIVE_STATUS_OUTPUT (optional path)
  */
 import * as fs from "fs";
 import * as https from "https";
@@ -56,53 +56,11 @@ function fetchText(url: string): Promise<string> {
   });
 }
 
-function readChannelId(): string {
-  const youtube = JSON.parse(fs.readFileSync(path.join(CONTENT, "youtube.json"), "utf8")) as {
-    channelId: string;
-    liveUrl: string;
-  };
-  return youtube.channelId;
-}
-
 function readLiveUrl(): string {
   const youtube = JSON.parse(fs.readFileSync(path.join(CONTENT, "youtube.json"), "utf8")) as {
     liveUrl: string;
   };
   return youtube.liveUrl;
-}
-
-async function checkViaApi(channelId: string, apiKey: string): Promise<LiveStatus | null> {
-  const url =
-    `https://www.googleapis.com/youtube/v3/search?part=snippet` +
-    `&channelId=${encodeURIComponent(channelId)}` +
-    `&eventType=live&type=video&maxResults=1&key=${encodeURIComponent(apiKey)}`;
-
-  const body = await fetchText(url);
-  const data = JSON.parse(body) as {
-    items?: Array<{
-      id: { videoId: string };
-      snippet: { title: string };
-    }>;
-    error?: { message: string };
-  };
-
-  if (data.error) {
-    console.warn(`YouTube API error: ${data.error.message}`);
-    return null;
-  }
-
-  const item = data.items?.[0];
-  if (!item) {
-    return { isLive: false, checkedAt: new Date().toISOString(), scheduledCheck: true };
-  }
-
-  return {
-    isLive: true,
-    videoId: item.id.videoId,
-    title: item.snippet.title,
-    checkedAt: new Date().toISOString(),
-    scheduledCheck: true,
-  };
 }
 
 function parseLiveFromHtml(html: string): LiveStatus {
@@ -158,19 +116,10 @@ export async function writeOfflineStatus(
 }
 
 export async function runLiveCheck(): Promise<LiveStatus> {
-  const channelId = readChannelId();
   const liveUrl = readLiveUrl();
-  const apiKey = process.env.YOUTUBE_API_KEY;
 
-  let status: LiveStatus;
-
-  if (apiKey) {
-    const apiResult = await checkViaApi(channelId, apiKey);
-    status = apiResult ?? (await checkViaScrape(liveUrl));
-  } else {
-    console.log("YOUTUBE_API_KEY not set — using channel /live page scrape.");
-    status = await checkViaScrape(liveUrl);
-  }
+  console.log("Checking live status via channel /live page scrape.");
+  const status = await checkViaScrape(liveUrl);
 
   writeLiveStatus(status);
 

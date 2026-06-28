@@ -22,10 +22,17 @@ function sleep(ms: number) {
 async function main() {
   const schedule = loadSchedule();
   validateSchedule(schedule);
+  const outputPath = process.env.LIVE_STATUS_OUTPUT ?? "/var/live-status/live-status.json";
 
   console.log(`Live checker schedule: ${describeSchedule(schedule)}`);
   console.log(`Active polling: every ${ACTIVE_INTERVAL_MS / 1000}s`);
   console.log(`Outside schedule: every ${IDLE_INTERVAL_MS / 1000}s (writes not live)`);
+  console.log(`Writing live status to ${outputPath}`);
+
+  if (!fs.existsSync(outputPath)) {
+    console.log("Live status file missing — seeding before first check.");
+    await writeOfflineStatus({ scheduledCheck: false });
+  }
 
   while (true) {
     const { active, window } = isWithinCheckWindow(schedule);

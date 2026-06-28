@@ -5,8 +5,23 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+FROM node:22-alpine
+RUN apk add --no-cache nginx
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+
+COPY tsconfig.json ./
+COPY cron/live-check.ts cron/live-check-loop.ts cron/live-check-schedule.ts cron/
+COPY content/youtube.json content/live-check-schedule.json content/
+
+COPY docker/nginx.conf /etc/nginx/http.d/default.conf
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 COPY --from=builder /app/out /usr/share/nginx/html
+
+ENV LIVE_STATUS_OUTPUT=/var/live-status/live-status.json
 EXPOSE 80
-CMD sh -c "sed -i \"s/listen 80/listen ${PORT:-80}/\" /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"# Force live-checker rebuild - Sun Jun 21 06:30:49 PM UTC 2026
+ENTRYPOINT ["/entrypoint.sh"]
