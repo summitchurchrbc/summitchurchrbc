@@ -15,6 +15,12 @@ fi
 
 chmod +x "$SYNC_SCRIPT"
 
+TRIGGER="$(node -e "const s=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')); console.log(s.trigger ?? 'schedule')" "$SCHEDULE_FILE")"
+if [[ "$TRIGGER" == "on-live-end" ]]; then
+  echo "Archive sync uses on-live-end trigger in the web container — no host crontab needed."
+  exit 0
+fi
+
 SCHEDULE_JSON="$(node -e '
 const fs = require("fs");
 const schedule = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));

@@ -4,7 +4,8 @@
  */
 import * as fs from "fs";
 import * as path from "path";
-import { runLiveCheck, writeOfflineStatus } from "./live-check";
+import { runLiveCheck, writeOfflineStatus, type LiveStatus } from "./live-check";
+import { syncArchiveOnLiveEnd } from "./sync-on-live-end";
 import {
   describeSchedule,
   isWithinCheckWindow,
@@ -17,6 +18,14 @@ const IDLE_INTERVAL_MS = 300_000;
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function readLiveStatus(outputPath: string): LiveStatus | null {
+  try {
+    return JSON.parse(fs.readFileSync(outputPath, "utf8")) as LiveStatus;
+  } catch {
+    return null;
+  }
 }
 
 async function main() {
@@ -34,6 +43,8 @@ async function main() {
     await writeOfflineStatus({ scheduledCheck: false });
   }
 
+  let previousStatus = readLiveStatus(outputPath);
+
   while (true) {
     const { active, window } = isWithinCheckWindow(schedule);
 
@@ -41,11 +52,14 @@ async function main() {
       if (active) {
         const label = window?.label ?? "scheduled window";
         console.log(`Within check window: ${label}`);
-        await runLiveCheck();
+        const status = await runLiveCheck();
+        await syncArchiveOnLiveEnd(previousStatus, status);
+        previousStatus = status;
         await sleep(ACTIVE_INTERVAL_MS);
       } else {
         console.log("Outside check schedule — skipping YouTube check.");
-        await writeOfflineStatus({ scheduledCheck: false });
+        const status = await writeOfflineStatus({ scheduledCheck: false });
+        previousStatus = status;
         await sleep(IDLE_INTERVAL_MS);
       }
     } catch (error) {

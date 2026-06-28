@@ -1,7 +1,5 @@
 {
-  "timezone": "America/Chicago",
-  "day": "sunday",
-  "time": "13:30",
-  "windowMinutes": 90,
+  "trigger": "on-live-end",
+  "followUpDelayMinutes": 10,
   "enabled": true
 }

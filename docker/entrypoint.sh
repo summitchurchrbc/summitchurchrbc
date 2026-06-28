@@ -16,23 +16,14 @@ fi
 ln -sf "$LIVE_STATUS_FILE" /usr/share/nginx/html/live-status.json
 ln -sf "$SERVICES_FILE" /usr/share/nginx/html/services.json
 
-# Restart live checker if it exits
-(
-  while true; do
-    LIVE_STATUS_OUTPUT="$LIVE_STATUS_FILE" npx tsx cron/live-check-loop.ts || true
-    echo "Live checker exited — restarting in 5s..."
-    sleep 5
-  done
-) &
-
-# Refresh archived services on startup, then keep polling on schedule
+# Refresh archived services on startup
 SERVICES_OUTPUT="$SERVICES_FILE" npx tsx cron/sync-archive.ts || true
 
-# Restart archive sync loop if it exits
+# Live checker also syncs the archive when a stream ends
 (
   while true; do
-    SERVICES_OUTPUT="$SERVICES_FILE" npx tsx cron/sync-archive-loop.ts || true
-    echo "Archive sync exited — restarting in 5s..."
+    LIVE_STATUS_OUTPUT="$LIVE_STATUS_FILE" SERVICES_OUTPUT="$SERVICES_FILE" npx tsx cron/live-check-loop.ts || true
+    echo "Live checker exited — restarting in 5s..."
     sleep 5
   done
 ) &
