@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { normalizeLiveStatus } from "@/lib/live-status";
 import type { LiveStatus } from "@/lib/types";
 
-const POLL_INTERVAL_MS = 60_000;
+const POLL_INTERVAL_MS = 30_000;
 
 export function useYouTubeLiveStatus() {
   const [status, setStatus] = useState<LiveStatus | null>(null);
@@ -17,7 +18,7 @@ export function useYouTubeLiveStatus() {
           cache: "no-store",
         });
         if (!response.ok) return;
-        const data = (await response.json()) as LiveStatus;
+        const data = normalizeLiveStatus((await response.json()) as LiveStatus);
         if (!cancelled) setStatus(data);
       } catch {
         // Ignore network errors; badge stays hidden until a successful poll.

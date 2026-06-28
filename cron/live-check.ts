@@ -18,6 +18,7 @@ import {
 const ROOT = path.join(__dirname, "..");
 const CONTENT = path.join(ROOT, "content");
 const DEFAULT_OUTPUT = "/usr/share/nginx/html/live-status.json";
+const FETCH_TIMEOUT_MS = 15_000;
 
 export interface LiveStatus {
   isLive: boolean;
@@ -33,8 +34,10 @@ function getOutputPath(): string {
 
 function fetchText(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    https
-      .get(url, { headers: { "User-Agent": "SummitChurchLiveCheck/1.0" } }, (res) => {
+    const request = https.get(
+      url,
+      { headers: { "User-Agent": "SummitChurchLiveCheck/1.0" }, timeout: FETCH_TIMEOUT_MS },
+      (res) => {
         if (
           res.statusCode &&
           res.statusCode >= 300 &&
@@ -51,8 +54,14 @@ function fetchText(url: string): Promise<string> {
         let data = "";
         res.on("data", (chunk) => (data += chunk));
         res.on("end", () => resolve(data));
-      })
-      .on("error", reject);
+      }
+    );
+
+    request.on("timeout", () => {
+      request.destroy();
+      reject(new Error(`Request timed out after ${FETCH_TIMEOUT_MS}ms: ${url}`));
+    });
+    request.on("error", reject);
   });
 }
 
