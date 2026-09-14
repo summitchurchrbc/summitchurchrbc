@@ -42,13 +42,8 @@
       "image": "/images/programs/summit-church.jpg",
       "items": [
         {
-          "name": "Food & Fellowship",
-          "time": "5:30 PM",
-          "note": "First Wednesday of each month"
-        },
-        {
           "name": "Worship & Service",
-          "time": "6:30 PM",
+          "time": "6:00 PM",
           "note": "First Wednesday of each month"
         }
       ]
