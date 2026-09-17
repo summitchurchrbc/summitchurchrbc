@@ -30,6 +30,7 @@ export default function ServicesPage() {
         name: featured.title,
         description: `Worship service from ${site.name}`,
         uploadDate: featured.publishedAt ?? featured.date,
+        thumbnailUrl: `https://i.ytimg.com/vi/${featured.youtubeId}/hqdefault.jpg`,
         embedUrl: `https://www.youtube.com/embed/${featured.youtubeId}`,
         contentUrl: featured.youtubeUrl,
         publisher: {
