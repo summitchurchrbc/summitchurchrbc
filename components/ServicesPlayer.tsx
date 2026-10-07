@@ -15,11 +15,12 @@ interface ServicesPlayerProps {
   channelUrl: string;
 }
 
-type FilterKey = "sunday-service" | "sunday-school" | "all";
+type FilterKey = "sunday-service" | "sunday-school" | "wednesday-night" | "all";
 
 const filters: Array<{ key: FilterKey; label: string }> = [
   { key: "sunday-service", label: "Sunday Service" },
   { key: "sunday-school", label: "Sunday School" },
+  { key: "wednesday-night", label: "Wednesday Night" },
   { key: "all", label: "All Streams" },
 ];
 

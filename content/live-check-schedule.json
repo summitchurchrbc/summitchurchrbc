@@ -6,6 +6,12 @@
       "days": ["sunday"],
       "start": "08:00",
       "end": "13:00"
+    },
+    {
+      "label": "Wednesday Night",
+      "days": ["wednesday"],
+      "start": "16:30",
+      "end": "20:30"
     }
   ],
   "checkIntervalMinutes": 5,

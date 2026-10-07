@@ -3,6 +3,7 @@ import { PageSection } from "@/components/PageSection";
 import { ServicesPlayer } from "@/components/ServicesPlayer";
 import { buildMetadata } from "@/lib/seo";
 import {
+  getLatestSermon,
   getLatestSundayService,
   getSermons,
   getSiteConfig,
@@ -12,7 +13,7 @@ import {
 export const metadata = buildMetadata({
   title: "Past Services | Summit Church Rainbow City",
   description:
-    "Watch past worship services and Sunday School streams from Summit Church in Rainbow City, AL on YouTube.",
+    "Watch past Sunday worship services, Sunday School, and Wednesday Night streams from Summit Church in Rainbow City, AL, on our YouTube channel.",
   path: "/services",
 });
 
@@ -22,6 +23,7 @@ export default function ServicesPage() {
   const youtube = getYouTubeConfig();
   const latestService = getLatestSundayService();
   const featured = latestService;
+  const latestWednesday = getLatestSermon("wednesday-night");
 
   const videoJsonLd = featured
     ? {
@@ -40,6 +42,24 @@ export default function ServicesPage() {
       }
     : null;
 
+  const wednesdayVideoJsonLd =
+    latestWednesday && latestWednesday.youtubeId !== featured?.youtubeId
+      ? {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: latestWednesday.title,
+          description: `Wednesday Night service from ${site.name}`,
+          uploadDate: latestWednesday.publishedAt ?? latestWednesday.date,
+          thumbnailUrl: `https://i.ytimg.com/vi/${latestWednesday.youtubeId}/hqdefault.jpg`,
+          embedUrl: `https://www.youtube.com/embed/${latestWednesday.youtubeId}`,
+          contentUrl: latestWednesday.youtubeUrl,
+          publisher: {
+            "@type": "Organization",
+            name: site.name,
+          },
+        }
+      : null;
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -49,14 +69,15 @@ export default function ServicesPage() {
         ]}
       />
       {videoJsonLd && <JsonLd data={videoJsonLd} />}
+      {wednesdayVideoJsonLd && <JsonLd data={wednesdayVideoJsonLd} />}
 
       <PageSection>
         <h1 className="mb-3 text-center font-serif text-3xl font-semibold md:text-4xl">
           Past Services
         </h1>
         <p className="mx-auto mb-8 max-w-2xl text-center text-base text-gray-700 md:text-lg">
-          Everyone is welcome here. Missed a Sunday? Watch our Sunday Service and Sunday School
-          streams from YouTube.
+          Everyone is welcome here. Missed a Sunday? Watch our Sunday Service, Sunday School, and
+          Wednesday Night streams from YouTube.
         </p>
 
         <ServicesPlayer

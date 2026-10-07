@@ -71,7 +71,7 @@ After sync, `content/services.json` and `content/youtube.json` are updated. Trig
 
 | Setting | Location | Default |
 |---------|----------|---------|
-| Schedule windows | `content/live-check-schedule.json` | Sundays 08:00–13:00 CT |
+| Schedule windows | `content/live-check-schedule.json` | Sundays 08:00–13:00 CT; Wednesdays 16:30–20:30 CT |
 | Poll interval (in-window) | `cron/live-check-loop.ts` | Every 60 seconds |
 | Poll interval (outside window) | `cron/live-check-loop.ts` | Every 5 minutes |
 
@@ -88,7 +88,7 @@ npm run check:youtube-live:loop     # continuous loop (used by Dockerfile.live-c
 |---------|----------|---------|
 | Schedule | `cron/sync-schedule.json` | Sundays at 12:45 CT |
 
-Fetches the YouTube channel RSS feed, categorizes Sunday Service and Sunday School videos, and updates `content/services.json` and `content/youtube.json`.
+Fetches the YouTube channel RSS feed, categorizes Sunday Service, Sunday School, and Wednesday Night videos (by title: "Sunday School" → Sunday School, "Wednesday" → Wednesday Night, "Sunday Service"/"Worship" → Sunday Service), and updates `content/services.json` and `content/youtube.json`.
 
 ```bash
 npm run sync:youtube                              # sync only

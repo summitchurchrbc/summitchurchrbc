@@ -81,6 +81,10 @@ export function getHomeContent(): HomeContent {
   return homeJson as HomeContent;
 }
 
+export function getLatestSermon(category: ServiceCategory): Sermon | undefined {
+  return getSermons(category)[0];
+}
+
 export function getLatestSundayService(): Sermon {
   const services = getSermons("sunday-service");
   if (services[0]) return services[0];

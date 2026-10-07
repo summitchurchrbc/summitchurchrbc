@@ -30,7 +30,7 @@ export interface NavItem {
   external?: boolean;
 }
 
-export type ServiceCategory = "sunday-service" | "sunday-school" | "other";
+export type ServiceCategory = "sunday-service" | "sunday-school" | "wednesday-night" | "other";
 
 export interface Sermon {
   id: number;

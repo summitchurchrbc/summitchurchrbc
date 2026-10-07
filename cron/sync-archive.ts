@@ -1,5 +1,5 @@
 /**
- * Sync Sunday Service / Sunday School streams from YouTube channel RSS.
+ * Sync Sunday Service / Sunday School / Wednesday Night streams from YouTube channel RSS.
  * Usage: npm run sync:youtube (cron/sync-archive.ts)
  * Env:   SERVICES_OUTPUT (optional path for runtime JSON)
  */
@@ -59,10 +59,17 @@ function slugify(title: string, videoId: string): string {
   return base || videoId;
 }
 
-function categorize(title: string): "sunday-service" | "sunday-school" | "other" {
+type Category = "sunday-service" | "sunday-school" | "wednesday-night" | "other";
+
+function categorize(title: string): Category {
   const lower = title.toLowerCase();
   if (lower.includes("sunday school") || lower.includes("sunday-school")) {
     return "sunday-school";
+  }
+  // Checked before the generic "worship" match so titles like
+  // "Wednesday Worship & Service" are not filed under Sunday Service.
+  if (lower.includes("wednesday")) {
+    return "wednesday-night";
   }
   if (lower.includes("sunday service") || lower.includes("worship")) {
     return "sunday-service";
@@ -78,7 +85,7 @@ interface ParsedVideo {
   publishedAt: string;
   youtubeId: string;
   youtubeUrl: string;
-  category: "sunday-service" | "sunday-school" | "other";
+  category: Category;
 }
 
 function parseRss(xml: string): ParsedVideo[] {
@@ -130,9 +137,11 @@ export async function runSyncArchive() {
   const videos = parseRss(xml);
   const services = videos.filter((v) => v.category === "sunday-service");
   const sundaySchool = videos.filter((v) => v.category === "sunday-school");
+  const wednesdayNight = videos.filter((v) => v.category === "wednesday-night");
   console.log(` ${videos.length} total videos`);
   console.log(` ${services.length} Sunday Service`);
   console.log(` ${sundaySchool.length} Sunday School`);
+  console.log(` ${wednesdayNight.length} Wednesday Night`);
 
   const sermons = buildSermons(videos);
   const outputPath = getServicesOutputPath();
