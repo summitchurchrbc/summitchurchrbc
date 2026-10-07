@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getTeam } from "@/lib/content";
 
 export const metadata = buildMetadata({
-  title: "Who We Are",
+  title: "Who We Are | Summit Church Rainbow City",
   description:
     "Meet the team at Summit Church in Rainbow City, AL — a church that feels like home, preaches Jesus, pursues freedom and loves all people.",
   path: "/about",

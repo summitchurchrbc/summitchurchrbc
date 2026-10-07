@@ -9,9 +9,9 @@ import { getHomeContent, getPrograms, getSiteConfig } from "@/lib/content";
 import { getChurchMapDestination } from "@/lib/maps";
 
 export const metadata = buildMetadata({
-  title: "Plan Your Visit",
+  title: "Plan Your Visit | Summit Church, Rainbow City AL",
   description:
-    "Planning your first visit to Summit Church in Rainbow City, AL? Learn what to expect, service times, parking, kids ministry, and directions.",
+    "What to expect at Summit Church in Rainbow City. Free parking at Rainbow Plaza, Sunday School at 9:25, worship at 10:30. Come as you are.",
   path: "/plan-your-visit",
 });
 

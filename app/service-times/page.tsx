@@ -6,9 +6,9 @@ import { buildMetadata } from "@/lib/seo";
 import { getPrograms, getSiteConfig } from "@/lib/content";
 
 export const metadata = buildMetadata({
-  title: "Connect With Us",
+  title: "Connect With Us | Summit Church Rainbow City",
   description:
-    "Connect with Summit Church in Rainbow City, AL. Service times, ministries, location, and ways to get involved. Sunday worship at 10:30 AM.",
+    "Weekly gatherings at Summit Church in Rainbow City. Sunday School 9:25 AM, worship 10:30 AM, ministries, and location at Rainbow Plaza.",
   path: "/service-times",
 });
 

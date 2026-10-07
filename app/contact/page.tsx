@@ -5,9 +5,9 @@ import { buildMetadata } from "@/lib/seo";
 import { getSiteConfig } from "@/lib/content";
 
 export const metadata = buildMetadata({
-  title: "Contact",
+  title: "Summit Church Rainbow City | 3225 Rainbow Dr, Gadsden Area",
   description:
-    "Contact Summit Church in Rainbow City, AL. We'd love to hear from you and answer any questions.",
+    "Contact Summit Church in Rainbow City, AL, at Rainbow Plaza, 3225 Rainbow Dr #246. Sunday worship at 10:30 AM. Serving the Gadsden area.",
   path: "/contact",
 });
 

@@ -10,7 +10,7 @@ import {
 } from "@/lib/content";
 
 export const metadata = buildMetadata({
-  title: "Services",
+  title: "Past Services | Summit Church Rainbow City",
   description:
     "Watch past worship services and Sunday School streams from Summit Church in Rainbow City, AL on YouTube.",
   path: "/services",

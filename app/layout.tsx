@@ -23,8 +23,9 @@ const robotoSlab = Roboto_Slab({
 const site = getSiteConfig();
 
 export const metadata: Metadata = buildMetadata({
-  title: "Home",
-  description: site.description,
+  title: "Summit Church Rainbow City | Sundays 10:30 | Gadsden",
+  description:
+    "Non-denominational church in Rainbow City, serving Gadsden and Etowah County. Sunday School 9:25, worship 10:30. Kids ministry and online service.",
   path: "/",
 });
 

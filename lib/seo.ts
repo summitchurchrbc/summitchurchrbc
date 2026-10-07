@@ -8,9 +8,10 @@ interface PageMeta {
   image?: string;
 }
 
+/** Build page Metadata. `title` is the final document title (no auto-suffix). */
 export function buildMetadata({ title, description, path, image }: PageMeta): Metadata {
   const site = getSiteConfig();
-  const fullTitle = title === "Home" ? `${site.name} - ${site.location}` : `${title} | ${site.name}`;
+  const fullTitle = title;
   const desc = description ?? site.description;
   const url = `${site.url}${path}`;
   const ogImage = image ?? `${site.url}/images/hero/summit-church-cover.webp`;
