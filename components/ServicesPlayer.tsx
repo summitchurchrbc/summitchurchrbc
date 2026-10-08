@@ -26,6 +26,14 @@ const filters: Array<{ key: FilterKey; label: string }> = [
 
 const ARCHIVE_LIMIT = 6;
 
+const LEADING_DATE = /^(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(.+)$/;
+
+/** Split "10/04/26 Sunday Service" into { date: "10/04/26", name: "Sunday Service" }. */
+function splitDatedTitle(title: string): { date: string; name: string } | null {
+  const match = title.match(LEADING_DATE);
+  return match ? { date: match[1], name: match[2] } : null;
+}
+
 export function ServicesPlayer({ sermons, channelId, channelUrl }: ServicesPlayerProps) {
   const syncedSermons = useSermons(sermons);
   const liveStatus = useYouTubeLiveStatus();
@@ -116,21 +124,32 @@ export function ServicesPlayer({ sermons, channelId, channelUrl }: ServicesPlaye
 
       {filtered.length > 0 && (
         <div className="overflow-x-auto">
-          <div className="flex flex-wrap gap-3 pb-2">
+          <div className="mx-auto grid max-w-sm auto-rows-fr grid-cols-2 gap-2 pb-2 sm:flex sm:max-w-none sm:flex-wrap sm:gap-3">
             {filtered.slice(0, ARCHIVE_LIMIT).map((sermon) => {
               const isSelected = !showLive && current?.youtubeId === sermon.youtubeId;
+              const dated = splitDatedTitle(sermon.title);
               return (
                 <button
                   key={sermon.youtubeId}
                   type="button"
                   onClick={() => setActive(sermon)}
-                  className={`shrink-0 rounded-sm border px-4 py-3 text-left transition-colors ${
+                  className={`flex w-full shrink-0 items-center justify-center rounded-sm border px-2 py-2.5 text-center transition-colors odd:last:col-span-2 sm:block sm:w-auto sm:px-4 sm:py-3 sm:text-left ${
                     isSelected
                       ? "border-primary bg-primary text-white"
                       : "border-gray-200 bg-white text-gray-800 hover:border-primary hover:text-primary"
                   }`}
                 >
-                  <span className="block text-sm font-semibold">{sermon.title}</span>
+                  <span className="block text-sm font-semibold">
+                    {dated ? (
+                      <>
+                        {/* Phones: date over name. sm+: unchanged single line. */}
+                        <span className="block sm:inline">{dated.date}</span>{" "}
+                        <span className="block sm:inline">{dated.name}</span>
+                      </>
+                    ) : (
+                      sermon.title
+                    )}
+                  </span>
                 </button>
               );
             })}
