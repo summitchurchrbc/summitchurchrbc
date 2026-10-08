@@ -56,7 +56,7 @@ export function ServicesPlayer({ sermons, channelId, channelUrl }: ServicesPlaye
 
   return (
     <div className="space-y-8">
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="mx-auto grid max-w-sm grid-cols-2 gap-2 sm:flex sm:max-w-none sm:flex-wrap sm:justify-center">
         {filters.map((item) => {
           const isAllStreams = item.key === "all";
           const showAsLive = isLive && isAllStreams;
@@ -72,12 +72,12 @@ export function ServicesPlayer({ sermons, channelId, channelUrl }: ServicesPlaye
               }}
               className={
                 showAsLive
-                  ? `inline-flex items-center gap-2 rounded-sm border-2 px-4 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-sm transition-colors ${
+                  ? `inline-flex w-full items-center justify-center gap-2 rounded-sm border-2 px-4 py-2 text-center text-sm font-bold uppercase tracking-wide text-white shadow-sm transition-colors sm:w-auto ${
                       isSelected
                         ? "border-red-800 bg-red-600"
                         : "border-red-700 bg-red-600 hover:bg-red-700"
                     }`
-                  : `rounded-sm border px-4 py-2 text-sm font-semibold transition-colors ${
+                  : `inline-flex w-full items-center justify-center rounded-sm border px-4 py-2 text-center text-sm font-semibold transition-colors sm:w-auto ${
                       isSelected
                         ? "border-primary bg-primary text-white"
                         : "border-gray-200 bg-white text-gray-800 hover:border-primary hover:text-primary"
